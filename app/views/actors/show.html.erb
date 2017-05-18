@@ -70,17 +70,19 @@
 
       <!-- Label and input for actor_id -->
       <div class="form-group">
+        <dt>Add a character</dt>
         <label for="actor_id" class="control-label">
-          Actor
+          Movie
         </label>
 
-        <input type="text" id="actor_id" name="actor_id" placeholder="Actor" class="form-control" value="<%= @character.actor_id %>">
+        <%= select_tag(:movie_id, options_from_collection_for_select(Movie.all, :id, :title, @character.movie_id), :class => "form-control") %>
+
       </div>
 
       <!-- Label and input for name -->
       <div class="form-group">
         <label for="name" class="control-label">
-          Name
+          Character Name
         </label>
 
         <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @character.name %>">

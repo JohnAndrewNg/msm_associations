@@ -1,10 +1,8 @@
 class Actor < ApplicationRecord
 
-  # movie_id: must be present
-  validates :name, :presence => true
+  # name: must be present; must be unique in combination with dob
+  validates :name, :presence => true, :uniqueness => { :scope => :dob }
 
-  # actor_id: must be present
-  validates :actor_id, :presence => true
 
 
   has_many :characters, :class_name => "Character", :foreign_key => "actor_id"
